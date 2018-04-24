@@ -59,6 +59,7 @@
     <Compile Include="src\Data\IntegerHelper.cs" />
     <Compile Include="src\Data\ListHelper.cs" />
     <Compile Include="src\Data\MultiDimensionalHashtable.cs" />
+    <Compile Include="src\Data\RangeHelper.cs" />
     <Compile Include="src\Data\StringHelper.cs" />
     <Compile Include="src\Data\XmlHelper.cs" />
     <Compile Include="src\IO\DirHelper.cs" />
