@@ -67,14 +67,7 @@ namespace RoutinesLibrary.Data
 
         public static string BytesToString(byte[] bytes)
         {
-            string sHexa = "";
-
-            for (int i = 0; i < bytes.Length; i++)
-            {
-                sHexa += string.Format("{0:X2}", bytes[i]);
-            }
-
-            return sHexa;
+            return System.Text.Encoding.ASCII.GetString(bytes);
         }
 
         public static byte[] StringToBytes(string sHexa)
