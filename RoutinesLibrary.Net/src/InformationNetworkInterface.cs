@@ -37,18 +37,18 @@ namespace RoutinesLibrary.Net
 
                 foreach (UnicastIPAddressInformation unicastAddress in ipNetworkInterface.UnicastAddresses)
                 {
-                    if ((!ReferenceEquals(unicastAddress.IPv4Mask, null)) && (!unicastAddress.Address.IsIPv6LinkLocal))
+                    if (!ReferenceEquals(GetNetMask(unicastAddress), null) && !unicastAddress.Address.IsIPv6LinkLocal)
                     {
-                        if (IsValidIPv4(unicastAddress.IPv4Mask) && IsValidIPv4(unicastAddress.Address))
+                        if (IsValidIPv4(GetNetMask(unicastAddress)) && IsValidIPv4(unicastAddress.Address))
                         {
                             string addressBroadcast = "";
-                            byte[] addressMaskByte = ConvertIP2Bytes(unicastAddress.IPv4Mask);
+                            byte[] addressMaskByte = ConvertIP2Bytes(GetNetMask(unicastAddress));
                             byte[] addressByte = ConvertIP2Bytes(unicastAddress.Address);
                             byte[] addressBroadcastByte = new byte[addressByte.Length];
 
                             for (int index = 0; index < addressByte.Length; index++)
                             {
-                                addressBroadcastByte[index] = (byte) (addressByte[index] | ~addressMaskByte[index]);
+                                addressBroadcastByte[index] = (byte)(addressByte[index] | ~addressMaskByte[index]);
                                 addressBroadcast = addressBroadcast + addressBroadcastByte[index].ToString();
                                 if (index != addressByte.Length - 1)
                                 {
@@ -58,7 +58,7 @@ namespace RoutinesLibrary.Net
 
                             NetworkInterfaceAddress interfaceAddress = new NetworkInterfaceAddress();
                             interfaceAddress.Address = unicastAddress.Address;
-                            interfaceAddress.Mask = unicastAddress.IPv4Mask;
+                            interfaceAddress.Mask = GetNetMask(unicastAddress);
                             interfaceAddress.Broadcast = IPAddress.Parse(addressBroadcast);
 
                             listNetworkInterfaceAddress.Add(interfaceAddress);
@@ -107,6 +107,19 @@ namespace RoutinesLibrary.Net
 
         #region PRIVATE METHODS
 
+        private static IPAddress GetNetMask(UnicastIPAddressInformation unicastAddress)
+        {
+            try
+            {
+                //Not implemented in Mono
+                return unicastAddress.IPv4Mask;
+            }
+            catch (Exception)
+            {
+                return IPAddress.Parse("255.255.255.0");
+            }
+        }
+
         /// <summary>
         /// Check if a IP address is v4
         /// </summary>
@@ -152,7 +165,7 @@ namespace RoutinesLibrary.Net
                     {
                         return new byte[] { };
                     }
-                    AddressByte[index] = (byte) Convert;
+                    AddressByte[index] = (byte)Convert;
                 }
                 return AddressByte;
             }
