@@ -44,6 +44,7 @@
     <Compile Include="src\Algorithms\TimeSeries\DBA.cs" />
     <Compile Include="src\Algorithms\TimeSeries\DTW.cs" />
     <Compile Include="src\Algorithms\TimeSeries\SmoothedZScore.cs" />
+    <Compile Include="src\Data\Average.cs" />
     <Compile Include="src\Data\BidirHashtable.cs" />
     <Compile Include="src\Data\ByteCollection.cs" />
     <Compile Include="src\Data\ByteHelper.cs" />
