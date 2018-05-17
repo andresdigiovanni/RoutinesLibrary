@@ -60,6 +60,7 @@
     <Compile Include="src\IO\FileHelper.cs" />
     <Compile Include="src\IO\SerialPort.cs" />
     <Compile Include="src\Security\AesHelper.cs" />
+    <Compile Include="src\Security\CRC16.cs" />
     <Compile Include="src\Security\SHA256Helper.cs" />
     <Compile Include="src\Security\TEAHelper.cs" />
   </ItemGroup>
