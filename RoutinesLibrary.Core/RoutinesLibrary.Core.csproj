@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,6 +57,7 @@
     <Compile Include="src\Data\RangeHelper.cs" />
     <Compile Include="src\Data\StringHelper.cs" />
     <Compile Include="src\Data\XmlHelper.cs" />
+    <Compile Include="src\Drawing\ImageHelper.cs" />
     <Compile Include="src\IO\DirHelper.cs" />
     <Compile Include="src\IO\FileHelper.cs" />
     <Compile Include="src\IO\SerialPort.cs" />
@@ -64,5 +66,6 @@
     <Compile Include="src\Security\SHA256Helper.cs" />
     <Compile Include="src\Security\TEAHelper.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
