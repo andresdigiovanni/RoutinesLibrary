@@ -5,34 +5,6 @@ namespace RoutinesLibrary.Core.Data
 {
     public class ByteHelper
     {
-        public static bool ArraysEqual(byte[] first, byte[] second)
-        {
-            if (ReferenceEquals(first, second))
-            {
-                return true;
-            }
-
-            if (ReferenceEquals(first, null) || ReferenceEquals(second, null))
-            {
-                return false;
-            }
-
-            if (first.Length != second.Length)
-            {
-                return false;
-            }
-
-            for (int i = 0; i < first.Length; i++)
-            {
-                if (first[i] != second[i])
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
         public static string BytesToHexa(byte[] bytes, string separator = "")
         {
             string sHexa = "";
