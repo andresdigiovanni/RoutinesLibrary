@@ -5,7 +5,7 @@ namespace RoutinesLibrary.Core.Data
     /// <summary>
     /// A static class of extension methods for <see cref="Array"/>.
     /// </summary>
-    /// <remarks>Based on: https://gist.github.com/ngbrown/443818/a947757556c1b716d84f634f2146474766cba8c9</remarks>
+    /// <remarks>Based on: https://gist.github.com/ngbrown/443818/a947757556c1b716d84f634f2146474766cba8c9 </remarks>
     public static class ArrayHelper
     {
         /// <summary>
@@ -111,6 +111,14 @@ namespace RoutinesLibrary.Core.Data
         {
             T[] result = new T[length];
             Array.Copy(data, index, result, 0, length);
+            return result;
+        }
+
+        public static T[] Combine<T>(T[] first, T[] second)
+        {
+            T[] result = new T[first.Length + second.Length];
+            Array.Copy(first, 0, result, 0, first.Length);
+            Array.Copy(second, 0, result, first.Length, second.Length);
             return result;
         }
     }
