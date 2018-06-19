@@ -59,6 +59,7 @@
     <Compile Include="src\Data\StringHelper.cs" />
     <Compile Include="src\Data\XmlHelper.cs" />
     <Compile Include="src\Drawing\ImageHelper.cs" />
+    <Compile Include="src\Drawing\SimpleBitmapCompression.cs" />
     <Compile Include="src\IO\DirHelper.cs" />
     <Compile Include="src\IO\FileHelper.cs" />
     <Compile Include="src\IO\SerialPort.cs" />
