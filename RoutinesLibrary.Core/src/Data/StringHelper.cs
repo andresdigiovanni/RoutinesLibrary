@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 
 namespace RoutinesLibrary.Core.Data
 {
@@ -45,26 +46,30 @@ namespace RoutinesLibrary.Core.Data
             return StrValue;
         }
 
-        public static string AddEndSlash(string sText)
+        public static string Left(string str, int length)
         {
-            if (sText.Substring(sText.Length - 1, 1) != "\\")
+            return (str.Length <= length) ? str : str.Substring(0, length);
+        }
+
+        public static string Mid(string str, int startIndex, int length)
+        {
+            if (str.Length < startIndex) return "";
+
+            return (str.Length < startIndex + length) ? str.Substring(startIndex, str.Length - startIndex)
+                                                      : str.Substring(startIndex, length);
+        }
+
+        public static string RemoveSpecialCharacters(string str)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in str)
             {
-                sText += "\\";
+                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == '.' || c == '_')
+                {
+                    sb.Append(c);
+                }
             }
-            return sText;
-        }
-
-        public static string Left(string value, int length)
-        {
-            return (value.Length <= length) ? value : value.Substring(0, length);
-        }
-
-        public static string Mid(string value, int startIndex, int length)
-        {
-            if (value.Length < startIndex) return "";
-
-            return (value.Length < startIndex + length) ? value.Substring(startIndex, value.Length - startIndex)
-                                                        : value.Substring(startIndex, length);
+            return sb.ToString();
         }
     }
 }
