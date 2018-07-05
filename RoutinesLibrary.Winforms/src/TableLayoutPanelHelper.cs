@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace RoutinesLibrary.UI.WinForms
+namespace RoutinesLibrary.WinForms
 {
     /// <summary>
     /// This class provides utils to use TableLayoutPanel

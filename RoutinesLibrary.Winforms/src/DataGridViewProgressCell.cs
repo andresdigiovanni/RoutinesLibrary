@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RoutinesLibrary.UI.WinForms
+namespace RoutinesLibrary.WinForms
 {
     public class DataGridViewProgressCell : DataGridViewImageCell
     {

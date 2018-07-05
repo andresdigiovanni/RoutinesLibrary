@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27428.2043
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutinesLibrary.Core", "RoutinesLibrary.Core\RoutinesLibrary.Core.csproj", "{A42AF631-08CC-446A-99C7-68131A48405D}"
 EndProject
@@ -11,7 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutinesLibrary.Services", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutinesLibrary.Shell", "RoutinesLibrary.Shell\RoutinesLibrary.Shell.csproj", "{EC84EF9B-21E1-4FE8-B35B-508D2B549941}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutinesLibrary.UI", "RoutinesLibrary.UI\RoutinesLibrary.UI.csproj", "{B7BACB88-4398-4799-A14E-483D16A894C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutinesLibrary.Drawing", "RoutinesLibrary.Drawing\RoutinesLibrary.Drawing.csproj", "{A93B5366-4572-4C8E-8FB0-18979800264D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutinesLibrary.Winforms", "RoutinesLibrary.Winforms\RoutinesLibrary.Winforms.csproj", "{C44B9EED-A13D-4CB3-9429-33CD47945E9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +37,14 @@ Global
 		{EC84EF9B-21E1-4FE8-B35B-508D2B549941}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC84EF9B-21E1-4FE8-B35B-508D2B549941}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC84EF9B-21E1-4FE8-B35B-508D2B549941}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B7BACB88-4398-4799-A14E-483D16A894C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B7BACB88-4398-4799-A14E-483D16A894C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B7BACB88-4398-4799-A14E-483D16A894C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B7BACB88-4398-4799-A14E-483D16A894C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A93B5366-4572-4C8E-8FB0-18979800264D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A93B5366-4572-4C8E-8FB0-18979800264D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A93B5366-4572-4C8E-8FB0-18979800264D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A93B5366-4572-4C8E-8FB0-18979800264D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C44B9EED-A13D-4CB3-9429-33CD47945E9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C44B9EED-A13D-4CB3-9429-33CD47945E9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C44B9EED-A13D-4CB3-9429-33CD47945E9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C44B9EED-A13D-4CB3-9429-33CD47945E9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

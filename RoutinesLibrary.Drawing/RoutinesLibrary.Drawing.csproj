@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A42AF631-08CC-446A-99C7-68131A48405D}</ProjectGuid>
+    <ProjectGuid>{A93B5366-4572-4C8E-8FB0-18979800264D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RoutinesLibrary.Core</RootNamespace>
-    <AssemblyName>RoutinesLibrary.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>RoutinesLibrary.Drawing</RootNamespace>
+    <AssemblyName>RoutinesLibrary.Drawing</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,31 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\Algorithms\TimeSeries\DBA.cs" />
-    <Compile Include="src\Algorithms\TimeSeries\DTW.cs" />
-    <Compile Include="src\Algorithms\TimeSeries\SmoothedZScore.cs" />
-    <Compile Include="src\Data\ArrayHelper.cs" />
-    <Compile Include="src\Data\Average.cs" />
-    <Compile Include="src\Data\BidirHashtable.cs" />
-    <Compile Include="src\Data\ByteCollection.cs" />
-    <Compile Include="src\Data\ByteHelper.cs" />
-    <Compile Include="src\Data\DateHelper.cs" />
-    <Compile Include="src\Data\FilterData.cs" />
-    <Compile Include="src\Data\IntegerHelper.cs" />
-    <Compile Include="src\Data\ListHelper.cs" />
-    <Compile Include="src\Data\MultiDimensionalHashtable.cs" />
-    <Compile Include="src\Data\RangeHelper.cs" />
-    <Compile Include="src\Data\StringHelper.cs" />
-    <Compile Include="src\Data\XmlHelper.cs" />
-    <Compile Include="src\IO\DirHelper.cs" />
-    <Compile Include="src\IO\FileHelper.cs" />
-    <Compile Include="src\IO\SerialPort.cs" />
-    <Compile Include="src\Security\AesHelper.cs" />
-    <Compile Include="src\Security\CRC16.cs" />
-    <Compile Include="src\Security\CRC16_CCITT.cs" />
-    <Compile Include="src\Security\SHA256Helper.cs" />
-    <Compile Include="src\Security\TEAHelper.cs" />
+    <Compile Include="src\ImageHelper.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

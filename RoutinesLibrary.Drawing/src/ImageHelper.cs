@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Text;
 
-namespace RoutinesLibrary.Core.Drawing
+namespace RoutinesLibrary.Drawing
 {
     public class ImageHelper
     {

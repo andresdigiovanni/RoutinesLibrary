@@ -44,12 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\winforms\ButtonHelper.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="src\winforms\DataGridViewProgressCell.cs" />
-    <Compile Include="src\winforms\TableLayoutPanelHelper.cs" />
-    <Compile Include="src\winforms\TreeViewHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\winforms\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,7 +2,7 @@ using System;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 
-namespace RoutinesLibrary.UI.WinForms
+namespace RoutinesLibrary.WinForms
 {
     public class TreeViewHelper
     {
