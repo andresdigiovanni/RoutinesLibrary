@@ -42,6 +42,8 @@ namespace RoutinesLibrary.Core.Security
 
         public static ushort ComputeChecksum(byte[] bytes)
         {
+            if (bytes == null || bytes.Length == 0) throw new ArgumentNullException("Value null or empty");
+
             ushort crc = 0;
 
             for (int i = 0; i < bytes.Length; ++i)
