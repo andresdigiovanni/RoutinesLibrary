@@ -4,6 +4,9 @@ using System.Text;
 
 namespace RoutinesLibrary.Core.Security
 {
+    /// <summary>
+    /// Class CRC16.
+    /// </summary>
     public class CRC16
     {
         private const ushort POLYNOMIAL = 0xA001;
@@ -39,6 +42,8 @@ namespace RoutinesLibrary.Core.Security
 
         public static ushort ComputeChecksum(byte[] bytes)
         {
+            if (bytes == null || bytes.Length == 0) throw new ArgumentNullException("Value null or empty");
+
             ushort crc = 0;
 
             for (int i = 0; i < bytes.Length; ++i)
