@@ -52,10 +52,9 @@
     <Compile Include="src\Data\ByteHelper.cs" />
     <Compile Include="src\Data\DateHelper.cs" />
     <Compile Include="src\Data\FilterData.cs" />
+    <Compile Include="src\Data\Heap.cs" />
     <Compile Include="src\Data\IntegerHelper.cs" />
     <Compile Include="src\Data\ListHelper.cs" />
-    <Compile Include="src\Data\MinHeap.cs" />
-    <Compile Include="src\Data\MaxHeap.cs" />
     <Compile Include="src\Data\MultiDimensionalHashtable.cs" />
     <Compile Include="src\Data\RangeHelper.cs" />
     <Compile Include="src\Data\StringHelper.cs" />
