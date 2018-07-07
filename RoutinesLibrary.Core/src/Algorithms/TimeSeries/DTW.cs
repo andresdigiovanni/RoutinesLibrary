@@ -12,18 +12,18 @@ namespace RoutinesLibrary.Core.Algorithms.TimeSeries
     /// <remarks>https://gist.github.com/socrateslee/1966342</remarks>
     public class DTW
     {
-        double[] x;
-        double[] y;
-        double[,] distance;
-        double[,] f;
-        double sum;
+        int[] x;
+        int[] y;
+        int[,] distance;
+        int[,] f;
+        int sum;
 
-        public DTW(double[] _x, double[] _y, int sakoeChibaBand = -1)
+        public DTW(int[] _x, int[] _y, int sakoeChibaBand = -1)
         {
             x = _x;
             y = _y;
-            distance = new double[x.Length, y.Length];
-            f = new double[x.Length + 1, y.Length + 1];
+            distance = new int[x.Length, y.Length];
+            f = new int[x.Length + 1, y.Length + 1];
 
             for (int i = 0; i < x.Length; ++i)
             {
@@ -43,17 +43,17 @@ namespace RoutinesLibrary.Core.Algorithms.TimeSeries
 
             for (int i = 1; i <= x.Length; ++i)
             {
-                f[i, 0] = double.MaxValue;
+                f[i, 0] = int.MaxValue;
             }
             for (int j = 1; j <= y.Length; ++j)
             {
-                f[0, j] = double.MaxValue;
+                f[0, j] = int.MaxValue;
             }
 
             // Sakoe-Chiba Band
             if (sakoeChibaBand > 0)
             {
-                double step = y.Length / x.Length;
+                double step = (double)y.Length / (double)x.Length;
                 for (int i = 1; i <= x.Length; ++i)
                 {
                     for (int j = 1; j <= y.Length; ++j)
@@ -61,7 +61,7 @@ namespace RoutinesLibrary.Core.Algorithms.TimeSeries
                         if (i * step > j + sakoeChibaBand ||
                             i * step < j - sakoeChibaBand)
                         {
-                            f[i, j] = double.MaxValue;
+                            f[i, j] = int.MaxValue;
                         }
                     }
                 }
@@ -71,19 +71,19 @@ namespace RoutinesLibrary.Core.Algorithms.TimeSeries
             sum = ComputeFBackward(x.Length, y.Length);
         }
 
-        public double GetSum()
+        public int GetSum()
         {
             return sum;
         }
 
-        public Tuple<double, double>[] GetPath()
+        public Tuple<int, int>[] GetPath()
         {
-            List<Tuple<double, double>> tupleBackward = ComputePathBackward(x.Length, y.Length);
+            List<Tuple<int, int>> tupleBackward = ComputePathBackward(x.Length, y.Length);
             tupleBackward.RemoveAt(0);
             return tupleBackward.ToArray();
         }
 
-        private double ComputeFBackward(int i, int j)
+        private int ComputeFBackward(int i, int j)
         {
             if (!(f[i, j] < 0))
             {
@@ -93,19 +93,19 @@ namespace RoutinesLibrary.Core.Algorithms.TimeSeries
             {
                 if (ComputeFBackward(i - 1, j) <= ComputeFBackward(i, j - 1) &&
                     ComputeFBackward(i - 1, j) <= ComputeFBackward(i - 1, j - 1) &&
-                    ComputeFBackward(i - 1, j) < double.MaxValue)
+                    ComputeFBackward(i - 1, j) < int.MaxValue)
                 {
                     f[i, j] = distance[i - 1, j - 1] + ComputeFBackward(i - 1, j);
                 }
                 else if (ComputeFBackward(i, j - 1) <= ComputeFBackward(i - 1, j) &&
                          ComputeFBackward(i, j - 1) <= ComputeFBackward(i - 1, j - 1) &&
-                         ComputeFBackward(i, j - 1) < double.MaxValue)
+                         ComputeFBackward(i, j - 1) < int.MaxValue)
                 {
                     f[i, j] = distance[i - 1, j - 1] + ComputeFBackward(i, j - 1);
                 }
                 else if (ComputeFBackward(i - 1, j - 1) <= ComputeFBackward(i - 1, j) &&
                          ComputeFBackward(i - 1, j - 1) <= ComputeFBackward(i, j - 1) &&
-                         ComputeFBackward(i - 1, j - 1) < double.MaxValue)
+                         ComputeFBackward(i - 1, j - 1) < int.MaxValue)
                 {
                     f[i, j] = distance[i - 1, j - 1] + ComputeFBackward(i - 1, j - 1);
                 }
@@ -113,9 +113,9 @@ namespace RoutinesLibrary.Core.Algorithms.TimeSeries
             return f[i, j];
         }
 
-        private List<Tuple<double, double>> ComputePathBackward(int i, int j)
+        private List<Tuple<int, int>> ComputePathBackward(int i, int j)
         {
-            List<Tuple<double, double>> tupleBackward = new List<Tuple<double, double>>();
+            List<Tuple<int, int>> tupleBackward = new List<Tuple<int, int>>();
 
             if (i != 0 && j != 0)
             {
@@ -123,19 +123,19 @@ namespace RoutinesLibrary.Core.Algorithms.TimeSeries
                     f[i - 1, j] <= f[i, j - 1])
                 {
                     tupleBackward = ComputePathBackward(i - 1, j);
-                    tupleBackward.Add(new Tuple<double, double>(i - 2, j - 1));
+                    tupleBackward.Add(new Tuple<int, int>(i - 2, j - 1));
                 }
                 else if (f[i, j - 1] <= f[i - 1, j] &&
                          f[i, j - 1] <= f[i - 1, j - 1])
                 {
                     tupleBackward = ComputePathBackward(i, j - 1);
-                    tupleBackward.Add(new Tuple<double, double>(i - 1, j - 2));
+                    tupleBackward.Add(new Tuple<int, int>(i - 1, j - 2));
                 }
                 else if (f[i - 1, j - 1] <= f[i - 1, j] &&
                          f[i - 1, j - 1] <= f[i, j - 1])
                 {
                     tupleBackward = ComputePathBackward(i - 1, j - 1);
-                    tupleBackward.Add(new Tuple<double, double>(i - 2, j - 2));
+                    tupleBackward.Add(new Tuple<int, int>(i - 2, j - 2));
                 }
             }
 
