@@ -60,7 +60,6 @@
     <Compile Include="src\Data\Helpers\XmlHelper.cs" />
     <Compile Include="src\IO\DirHelper.cs" />
     <Compile Include="src\IO\FileHelper.cs" />
-    <Compile Include="src\IO\SerialPort.cs" />
     <Compile Include="src\Security\AesHelper.cs" />
     <Compile Include="src\Security\CRC16.cs" />
     <Compile Include="src\Security\CRC16_CCITT.cs" />
