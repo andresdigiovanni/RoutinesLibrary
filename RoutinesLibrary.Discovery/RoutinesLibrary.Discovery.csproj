@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EC84EF9B-21E1-4FE8-B35B-508D2B549941}</ProjectGuid>
+    <ProjectGuid>{A659C845-A6FD-4BF0-B0AB-4F7A067BE080}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RoutinesLibrary.Shell</RootNamespace>
-    <AssemblyName>RoutinesLibrary.Shell</AssemblyName>
+    <RootNamespace>RoutinesLibrary.Discovery</RootNamespace>
+    <AssemblyName>RoutinesLibrary.Discovery</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,7 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\ShellExecute.cs" />
+    <Compile Include="src\Discovery\DiscoveryClient.cs" />
+    <Compile Include="src\Discovery\DiscoveryHost.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RoutinesLibrary.Net\RoutinesLibrary.Net.csproj">
+      <Project>{e71255bd-6caf-4748-b71e-300e338c7821}</Project>
+      <Name>RoutinesLibrary.Net</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

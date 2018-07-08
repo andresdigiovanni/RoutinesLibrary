@@ -1,3 +1,4 @@
+using RoutinesLibrary.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,14 +6,13 @@ using System.Net;
 using System.ServiceModel;
 using System.Text;
 using System.Threading;
-using Microsoft.VisualBasic;
 
-namespace RoutinesLibrary.Net.Discovery
+namespace RoutinesLibrary.Discovery
 {
     /// <summary>
     /// Provides a mechanism for searching by UDP. This class performs searches periodically
     /// </summary>
-    public class DiscoveryUDPClient
+    public class DiscoveryClient
     {
         //Configuration search
         private string m_MessageRequest;
@@ -22,7 +22,7 @@ namespace RoutinesLibrary.Net.Discovery
         private int m_DiscoverInterval;
 
         //UDP socket
-        private Protocols.UDPHelper m_SockUDP;
+        private Net.Protocols.UDPHelper m_SockUDP;
 
         //List discovered services
         private List<EndpointAddress> m_ListDiscoveredServices = new List<EndpointAddress>();
@@ -46,7 +46,7 @@ namespace RoutinesLibrary.Net.Discovery
         /// <param name="messageResponse">Response message</param>
         /// <param name="port">Port to perform searches</param>
         /// <param name="discoverInterval">Time interval to perform searches</param>
-        public DiscoveryUDPClient(string messageRequest, string messageResponse, ushort port, int discoverInterval = 3000)
+        public DiscoveryClient(string messageRequest, string messageResponse, ushort port, int discoverInterval = 3000)
         {
             //Configuration search
             m_MessageRequest = messageRequest;
@@ -55,8 +55,8 @@ namespace RoutinesLibrary.Net.Discovery
             m_DiscoverInterval = discoverInterval;
 
             //UDP socket
-            m_SockUDP = new Protocols.UDPHelper(InformationNetworkInterface.GetPortAvailable(49152, 65535));
-            m_SockUDP.DataReceived += new Protocols.UDPHelper.DataReceivedEventHandler(SockUDP_DataReceived);
+            m_SockUDP = new Net.Protocols.UDPHelper(InformationNetworkInterface.GetPortAvailable(49152, 65535));
+            m_SockUDP.DataReceived += new Net.Protocols.UDPHelper.DataReceivedEventHandler(SockUDP_DataReceived);
             m_SockUDP.Activate();
 
             //Search

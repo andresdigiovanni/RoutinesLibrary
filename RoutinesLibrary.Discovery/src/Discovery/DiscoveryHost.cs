@@ -2,12 +2,12 @@ using System;
 using System.Net;
 using System.Text;
 
-namespace RoutinesLibrary.Net.Discovery
+namespace RoutinesLibrary.Discovery
 {
     /// <summary>
     /// Provides a mechanism for searching by UDP. This class waits to receive requests to respond to searches
     /// </summary>
-    public class DiscoveryUDPHost
+    public class DiscoveryHost
     {
         //Configuration search
         private string m_MessageRequest;
@@ -29,7 +29,7 @@ namespace RoutinesLibrary.Net.Discovery
         /// <param name="messageResponse">Response message</param>
         /// <param name="port">Port to wait searches</param>
         /// <param name="localIPAdress">Local IP address to response</param>
-        public DiscoveryUDPHost(string messageRequest, string messageResponse, ushort port, string localIPAdress = "")
+        public DiscoveryHost(string messageRequest, string messageResponse, ushort port, string localIPAdress = "")
         {
             //Configuration search
             m_MessageRequest = messageRequest;

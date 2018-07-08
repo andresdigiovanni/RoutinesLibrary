@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutinesLibrary.Winforms", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutinesLibrary.CoreUnitTests", "RoutinesLibrary.CoreUnitTests\RoutinesLibrary.CoreUnitTests.csproj", "{C1F9B78A-BFF0-4F04-B2F5-10A608D90293}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutinesLibrary.Discovery", "RoutinesLibrary.Discovery\RoutinesLibrary.Discovery.csproj", "{A659C845-A6FD-4BF0-B0AB-4F7A067BE080}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{C1F9B78A-BFF0-4F04-B2F5-10A608D90293}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1F9B78A-BFF0-4F04-B2F5-10A608D90293}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1F9B78A-BFF0-4F04-B2F5-10A608D90293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A659C845-A6FD-4BF0-B0AB-4F7A067BE080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A659C845-A6FD-4BF0-B0AB-4F7A067BE080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A659C845-A6FD-4BF0-B0AB-4F7A067BE080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A659C845-A6FD-4BF0-B0AB-4F7A067BE080}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

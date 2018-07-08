@@ -10,7 +10,7 @@ namespace RoutinesLibrary.Net
     /// This class provides informartion for network interface
     /// </summary>
     /// <remarks></remarks>
-    internal class InformationNetworkInterface
+    public class InformationNetworkInterface
     {
         public struct NetworkInterfaceAddress
         {
