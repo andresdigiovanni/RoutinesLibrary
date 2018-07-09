@@ -8,6 +8,17 @@ namespace RoutinesLibrary.Security
 
         public static byte[] Encrypt(byte[] dataBytes, uint[] Key)
         {
+            // Check arguments
+            if (ReferenceEquals(dataBytes, null) || dataBytes.Length <= 0)
+            {
+                throw (new ArgumentNullException("dataBytes"));
+            }
+
+            if (ReferenceEquals(Key, null) || Key.Length < 4)
+            {
+                throw (new ArgumentNullException("Key"));
+            }
+
             // Make sure array is multiple of 8 in length
             if (dataBytes.Length % 8 != 0)
             {
@@ -35,6 +46,17 @@ namespace RoutinesLibrary.Security
 
         public static byte[] Decrypt(byte[] cipher, uint[] Key)
         {
+            // Check arguments
+            if (ReferenceEquals(cipher, null) || cipher.Length <= 0)
+            {
+                throw (new ArgumentNullException("dataBytes"));
+            }
+
+            if (ReferenceEquals(Key, null) || Key.Length < 4)
+            {
+                throw (new ArgumentNullException("Key"));
+            }
+
             byte[] dataBytes = new byte[cipher.Length];
             uint[] tempData = new uint[2];
             for (int i = 0; i < cipher.Length; i += 8)

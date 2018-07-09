@@ -62,6 +62,7 @@
     <Compile Include="test\Security\AesHelperUnitTest.cs" />
     <Compile Include="test\Security\CRC16UnitTest.cs" />
     <Compile Include="test\Security\CRC16_CCITTUnitTest.cs" />
+    <Compile Include="test\Security\TEAHelperUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
