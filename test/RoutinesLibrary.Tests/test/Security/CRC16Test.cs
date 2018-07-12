@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace RoutinesLibraryUnitTest.Security
+namespace RoutinesLibrary.Tests.Security
 {
-    public class CRC16UnitTest
+    public class CRC16Test
     {
         [Theory]
         [InlineData("0123456789", 0x443D)]

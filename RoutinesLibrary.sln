@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutinesLibrary.Drawing", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutinesLibrary.Winforms", "src\RoutinesLibrary.Winforms\RoutinesLibrary.Winforms.csproj", "{C44B9EED-A13D-4CB3-9429-33CD47945E9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutinesLibraryUnitTest", "test\RoutinesLibraryUnitTest\RoutinesLibraryUnitTest.csproj", "{C1F9B78A-BFF0-4F04-B2F5-10A608D90293}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutinesLibrary.Tests", "test\RoutinesLibrary.Tests\RoutinesLibrary.Tests.csproj", "{C1F9B78A-BFF0-4F04-B2F5-10A608D90293}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutinesLibrary.Discovery", "src\RoutinesLibrary.Discovery\RoutinesLibrary.Discovery.csproj", "{A659C845-A6FD-4BF0-B0AB-4F7A067BE080}"
 EndProject

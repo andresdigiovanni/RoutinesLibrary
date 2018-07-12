@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace RoutinesLibraryUnitTest.Security
+namespace RoutinesLibrary.Tests.Security
 {
-    public class TEAHelperUnitTest
+    public class TEAHelperTest
     {
         [Theory]
         [ClassData(typeof(TEATestData))]
