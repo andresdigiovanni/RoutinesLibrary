@@ -24,25 +24,25 @@ namespace RoutinesLibrary.Data
             return Convert.ToInt32(value);
         }
 
-        public static string UIntToString(uint input)
+        public static string UIntToString(uint value)
         {
             System.Text.StringBuilder output = new System.Text.StringBuilder();
-            output.Append((char)((input & 0xFF)));
-            output.Append((char)((input >> 8) & 0xFF));
-            output.Append((char)((input >> 16) & 0xFF));
-            output.Append((char)((input >> 24) & 0xFF));
-
+            while (value > 0)
+            {
+                output.Append((char)((value & 0xFF)));
+                value >>= 8;
+            }
             return output.ToString();
         }
 
-        public static uint StringToUInt(string input)
+        public static uint StringToUInt(string value)
         {
-            uint output;
-            output = ((uint)input[0]);
-            output += ((uint)input[1] << 8);
-            output += ((uint)input[2] << 16);
-            output += ((uint)input[3] << 24);
+            uint output = 0;
 
+            for (int i = 0; i < value.Length; i++)
+            {
+                output += ((uint)value[i] << (i * 8));
+            }
             return output;
         }
     }
