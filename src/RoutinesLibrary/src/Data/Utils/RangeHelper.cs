@@ -15,7 +15,7 @@ namespace RoutinesLibrary.Data
             {
                 //--max1
                 //    min2--
-                if (max1 < min2)
+                if (max1 <= min2)
                 {
                     //No intersection
                     maxR = max1;
@@ -45,7 +45,7 @@ namespace RoutinesLibrary.Data
             {
                 //    min1--
                 //--max2
-                if (max2 < min1)
+                if (max2 <= min1)
                 {
                     //No intersection
                     maxR = max1;

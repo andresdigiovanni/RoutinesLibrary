@@ -62,6 +62,7 @@
     <Compile Include="test\Data\Helpers\IntegerHelperTest.cs" />
     <Compile Include="test\Data\Utils\AverageTest.cs" />
     <Compile Include="test\Data\Utils\FilterDataTest.cs" />
+    <Compile Include="test\Data\Utils\RangeHelperTest.cs" />
     <Compile Include="test\Security\AesHelperTest.cs" />
     <Compile Include="test\Security\CRC16Test.cs" />
     <Compile Include="test\Security\CRC16_CCITTTest.cs" />
