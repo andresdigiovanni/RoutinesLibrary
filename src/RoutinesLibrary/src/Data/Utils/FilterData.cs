@@ -10,12 +10,18 @@ namespace RoutinesLibrary.Data
     {
         private int m_filterParam;
 
-        private Queue<int> m_queueData = new Queue<int>();
-        private int m_mean = 0;
+        private Queue<double> m_queueData = new Queue<double>();
+        private double m_mean = 0;
 
 
         public FilterData(int param)
         {
+            // Check arguments
+            if (param <= 0)
+            {
+                throw (new ArgumentException("param must be strictly positive"));
+            }
+
             m_filterParam = param;
         }
 
@@ -25,7 +31,7 @@ namespace RoutinesLibrary.Data
             m_mean = 0;
         }
 
-        public int Add(int value)
+        public double Add(double value)
         {
 
             m_queueData.Enqueue(value);
