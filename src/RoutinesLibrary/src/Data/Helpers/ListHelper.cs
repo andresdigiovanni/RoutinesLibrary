@@ -8,68 +8,86 @@ namespace RoutinesLibrary.Data
 {
     public static class ListHelper
     {
-        public static int IndexOfMax(this IList<int> input)
+        public static int IndexOfMax<T>(this IList<T> values) where T : IComparable
         {
-            if (input == null) throw new ArgumentNullException("input");
+            // Check arguments
+            if (ReferenceEquals(values, null) || values.Count <= 0)
+            {
+                throw (new ArgumentNullException("values"));
+            }
 
             int maxIndex = -1;
-            int maxValue = input[0];
+            T maxValue = values[0];
 
-            for (int i = 0; i < input.Count; i++)
+            for (int i = 0; i < values.Count; i++)
             {
-                if (input[i] >= maxValue)
+                if (values[i].CompareTo(maxValue) >= 0)
                 {
                     maxIndex = i;
-                    maxValue = input[i];
+                    maxValue = values[i];
                 }
             }
 
             return maxIndex;
         }
 
-        public static int IndexOfMin(this IList<int> input)
+        public static int IndexOfMin<T>(this IList<T> values) where T : IComparable
         {
-            if (input == null) throw new ArgumentNullException("input");
+            // Check arguments
+            if (ReferenceEquals(values, null) || values.Count <= 0)
+            {
+                throw (new ArgumentNullException("values"));
+            }
 
             int minIndex = -1;
-            int minValue = input[0];
+            T minValue = values[0];
 
-            for (int i = 0; i < input.Count; i++)
+            for (int i = 0; i < values.Count; i++)
             {
-                if (input[i] <= minValue)
+                if (values[i].CompareTo(minValue) <= 0)
                 {
                     minIndex = i;
-                    minValue = input[i];
+                    minValue = values[i];
                 }
             }
 
             return minIndex;
         }
 
-        public static void Shuffle<T>(this IList<T> list)
+        public static void Shuffle<T>(this IList<T> values)
         {
+            // Check arguments
+            if (ReferenceEquals(values, null) || values.Count <= 0)
+            {
+                throw (new ArgumentNullException("values"));
+            }
+
             Random rng = new Random();
-            int n = list.Count;
+            int n = values.Count;
 
             while (n > 1)
             {
                 n--;
                 int k = rng.Next(n + 1);
-                T value = list[k];
-                list[k] = list[n];
-                list[n] = value;
+                T value = values[k];
+                values[k] = values[n];
+                values[n] = value;
             }
         }
 
-        public static int Median(this IEnumerable<int> input)
+        public static int Median(this IEnumerable<int> values)
         {
-            if (input == null) throw new ArgumentNullException("input");
+            // Check arguments
+            if (ReferenceEquals(values, null) || values.Count() <= 0)
+            {
+                throw (new ArgumentNullException("values"));
+            }
 
-            int midIndex = input.Count() / 2;
-            var sorted = input.OrderBy(x => x).ToList();
+            int midIndex = values.Count() / 2;
+            var sorted = values.OrderBy(x => x).ToList();
 
             int median =
-                input.Count() % 2 == 0
+                values.Count() % 2 == 0
                     ? (sorted[midIndex] + sorted[midIndex - 1]) / 2
                     : sorted[midIndex];
 
@@ -78,19 +96,46 @@ namespace RoutinesLibrary.Data
 
         public static double Mean(this List<double> values)
         {
-            return values.Count == 0 ? 0 : values.Mean(0, values.Count);
+            // Check arguments
+            if (ReferenceEquals(values, null) || values.Count <= 0)
+            {
+                throw (new ArgumentNullException("values"));
+            }
+
+            return values.Count == 0 ? 0 : values.Mean(0, values.Count - 1);
         }
 
         public static double Mean(this List<double> values, int start, int end)
         {
+            // Check arguments
+            if (ReferenceEquals(values, null) || values.Count <= 0)
+            {
+                throw (new ArgumentNullException("values"));
+            }
+
+            if (start < 0 || start >= values.Count)
+            {
+                throw (new ArgumentOutOfRangeException("start"));
+            }
+
+            if (end < 0 || end >= values.Count)
+            {
+                throw (new ArgumentOutOfRangeException("end"));
+            }
+
+            if (start > end)
+            {
+                throw (new ArgumentOutOfRangeException("end"));
+            }
+
             double s = 0;
 
-            for (int i = start; i < end; i++)
+            for (int i = start; i <= end; i++)
             {
                 s += values[i];
             }
 
-            return s / (end - start);
+            return s / (end - start + 1);
         }
 
         public static double Variance(this List<double> values)

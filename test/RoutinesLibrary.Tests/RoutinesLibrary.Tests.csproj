@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test\Data\Helpers\IntegerHelperTest.cs" />
+    <Compile Include="test\Data\Helpers\ListHelperTest.cs" />
     <Compile Include="test\Data\Utils\AverageTest.cs" />
     <Compile Include="test\Data\Utils\FilterDataTest.cs" />
     <Compile Include="test\Data\Utils\RangeHelperTest.cs" />
