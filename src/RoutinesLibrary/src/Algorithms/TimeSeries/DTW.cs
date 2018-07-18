@@ -20,6 +20,17 @@ namespace RoutinesLibrary.Algorithms.TimeSeries
 
         public DTW(int[] x, int[] y, int sakoeChibaBand = -1)
         {
+            // Check arguments
+            if (ReferenceEquals(x, null) || x.Length <= 0)
+            {
+                throw (new ArgumentNullException("x"));
+            }
+
+            if (ReferenceEquals(y, null) || y.Length <= 0)
+            {
+                throw (new ArgumentNullException("y"));
+            }
+
             _x = x;
             _y = y;
             _distance = new int[x.Length, y.Length];

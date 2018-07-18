@@ -31,6 +31,38 @@ namespace RoutinesLibrary.Tests.Algorithms.TimeSeries
             Assert.Equal(expected, result);
         }
 
+        [Fact]
+        public void DTW_Exception_x_Empty()
+        {
+            int[] x = new int[] { };
+            int[] y = new int[] { 0, 1, 2, 3, 4, 5 };
+            Assert.Throws<ArgumentNullException>(() => new DTW(x, y, -1));
+        }
+
+        [Fact]
+        public void DTW_Exception_x_Null()
+        {
+            int[] x = null;
+            int[] y = new int[] { 0, 1, 2, 3, 4, 5 };
+            Assert.Throws<ArgumentNullException>(() => new DTW(x, y, -1));
+        }
+
+        [Fact]
+        public void DTW_Exception_y_Empty()
+        {
+            int[] x = new int[] { 0, 1, 2, 3, 4, 5 };
+            int[] y = new int[] { };            
+            Assert.Throws<ArgumentNullException>(() => new DTW(x, y, -1));
+        }
+
+        [Fact]
+        public void DTW_Exception_y_Null()
+        {
+            int[] x = new int[] { 0, 1, 2, 3, 4, 5 };
+            int[] y = null;
+            Assert.Throws<ArgumentNullException>(() => new DTW(x, y, -1));
+        }
+
         public class GetSumData : IEnumerable<object[]>
         {
             public IEnumerator<object[]> GetEnumerator()
