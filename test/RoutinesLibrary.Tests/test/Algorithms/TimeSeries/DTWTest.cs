@@ -80,16 +80,33 @@ namespace RoutinesLibrary.Tests.Algorithms.TimeSeries
         {
             public IEnumerator<object[]> GetEnumerator()
             {
-                yield return new object[] { new int[] { 0, 1, 2, 3, 4, 5 },
-                                            new int[] { 0, 1, 2, 3, 4, 5 },
+                yield return new object[] { new int[] { 0, 1, 2, 3, 4 },
+                                            new int[] { 0, 1, 2, 3, 4 },
                                             -1,
                                             new Tuple<int, int>[] {
                                                 new Tuple<int,int>(0, 0),
                                                 new Tuple<int,int>(1, 1),
                                                 new Tuple<int,int>(2, 2),
                                                 new Tuple<int,int>(3, 3),
-                                                new Tuple<int,int>(4, 4),
-                                                new Tuple<int,int>(5, 5)} };
+                                                new Tuple<int,int>(4, 4)} };
+                yield return new object[] { new int[] { 4, 3, 2, 1, 0 },
+                                            new int[] { 4, 3, 2, 1, 0 },
+                                            -1,
+                                            new Tuple<int, int>[] {
+                                                new Tuple<int,int>(0, 0),
+                                                new Tuple<int,int>(1, 1),
+                                                new Tuple<int,int>(2, 2),
+                                                new Tuple<int,int>(3, 3),
+                                                new Tuple<int,int>(4, 4)} };
+                yield return new object[] { new int[] { 0, 0, 0, 0, 0 },
+                                            new int[] { 0, 0, 0, 0, 0 },
+                                            -1,
+                                            new Tuple<int, int>[] {
+                                                new Tuple<int,int>(0, 0),
+                                                new Tuple<int,int>(1, 1),
+                                                new Tuple<int,int>(2, 2),
+                                                new Tuple<int,int>(3, 3),
+                                                new Tuple<int,int>(4, 4)} };
             }
 
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

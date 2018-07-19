@@ -91,7 +91,7 @@ namespace RoutinesLibrary.Algorithms.TimeSeries
         {
             List<Tuple<int, int>> tupleBackward = ComputePathBackward(_x.Length, _y.Length);
             tupleBackward.RemoveAt(0);
-            tupleBackward.Add(new Tuple<int, int>(_x[_x.Length - 1], _y[_y.Length - 1]));
+            tupleBackward.Add(new Tuple<int, int>(_x.Length - 1, _y.Length - 1));
             return tupleBackward.ToArray();
         }
 
@@ -131,7 +131,13 @@ namespace RoutinesLibrary.Algorithms.TimeSeries
 
             if (i != 0 && j != 0)
             {
-                if (_f[i - 1, j] <= _f[i - 1, j - 1] &&
+                if (_f[i - 1, j - 1] <= _f[i - 1, j] &&
+                         _f[i - 1, j - 1] <= _f[i, j - 1])
+                {
+                    tupleBackward = ComputePathBackward(i - 1, j - 1);
+                    tupleBackward.Add(new Tuple<int, int>(i - 2, j - 2));
+                }
+                else if (_f[i - 1, j] <= _f[i - 1, j - 1] &&
                     _f[i - 1, j] <= _f[i, j - 1])
                 {
                     tupleBackward = ComputePathBackward(i - 1, j);
@@ -142,12 +148,6 @@ namespace RoutinesLibrary.Algorithms.TimeSeries
                 {
                     tupleBackward = ComputePathBackward(i, j - 1);
                     tupleBackward.Add(new Tuple<int, int>(i - 1, j - 2));
-                }
-                else if (_f[i - 1, j - 1] <= _f[i - 1, j] &&
-                         _f[i - 1, j - 1] <= _f[i, j - 1])
-                {
-                    tupleBackward = ComputePathBackward(i - 1, j - 1);
-                    tupleBackward.Add(new Tuple<int, int>(i - 2, j - 2));
                 }
             }
 
