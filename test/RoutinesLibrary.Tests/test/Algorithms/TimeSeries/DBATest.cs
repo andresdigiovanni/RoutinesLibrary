@@ -13,7 +13,7 @@ namespace RoutinesLibrary.Tests.Algorithms.TimeSeries
     {
         [Theory]
         [ClassData(typeof(AverageData))]
-        public void Average(List<int[]> value, int[] expected)
+        public void Average(List<double[]> value, double[] expected)
         {
             var result = DBA.Average(value);
 
@@ -23,7 +23,7 @@ namespace RoutinesLibrary.Tests.Algorithms.TimeSeries
         [Fact]
         public void Average_Exception_value_Empty()
         {
-            List<int[]> value = new List<int[]>();
+            List<double[]> value = new List<double[]>();
 
             Assert.Throws<ArgumentNullException>(() => DBA.Average(value));
         }
@@ -31,7 +31,7 @@ namespace RoutinesLibrary.Tests.Algorithms.TimeSeries
         [Fact]
         public void Average_Exception_value_Null()
         {
-            List<int[]> value = null;
+            List<double[]> value = null;
 
             Assert.Throws<ArgumentNullException>(() => DBA.Average(value));
         }
@@ -40,26 +40,26 @@ namespace RoutinesLibrary.Tests.Algorithms.TimeSeries
         {
             public IEnumerator<object[]> GetEnumerator()
             {
-                yield return new object[] { new List<int[]>() {
-                                                new int[] { 0, 0, 0, 0, 0 }},
-                                            new int[] { 0, 0, 0, 0, 0 }};
-                yield return new object[] { new List<int[]>() {
-                                                new int[] { 0, 0, 0, 0, 0 },
-                                                new int[] { 2, 2, 2, 2, 2 }},
-                                            new int[] { 1, 1, 1, 1, 1 }};
-                yield return new object[] { new List<int[]>() {
-                                                new int[] { 0, 0, 0, 0 },
-                                                new int[] { 2, 2, 2, 2, 2, 2 }},
-                                            new int[] { 1, 1, 1, 1, 1 }};
-                yield return new object[] { new List<int[]>() {
-                                                new int[] { 0, 0, 0, 0 },
-                                                new int[] { 2, 2, 2, 2, 2 },
-                                                new int[] { 4, 4, 4, 4, 4, 4 }},
-                                            new int[] { 2, 2, 2, 2, 2 }};
-                yield return new object[] { new List<int[]>() {
-                                                new int[] { 0, 1, 2, 3, 4 },
-                                                new int[] { 4, 3, 2, 1, 0 }},
-                                            new int[] { 2, 2, 2, 2, 2 }};
+                yield return new object[] { new List<double[]>() {
+                                                new double[] { 0, 0, 0, 0, 0 }},
+                                            new double[] { 0, 0, 0, 0, 0 }};
+                yield return new object[] { new List<double[]>() {
+                                                new double[] { 0, 0, 0, 0, 0 },
+                                                new double[] { 2, 2, 2, 2, 2 }},
+                                            new double[] { 1, 1, 1, 1, 1 }};
+                yield return new object[] { new List<double[]>() {
+                                                new double[] { 0, 0, 0, 0, 0 },
+                                                new double[] { 2, 2, 2, 2, 2 },
+                                                new double[] { 4, 4, 4, 4, 4 }},
+                                            new double[] { 2, 2, 2, 2, 2 }};
+                yield return new object[] { new List<double[]>() {
+                                                new double[] { 0, 1, 2, 3, 4 },
+                                                new double[] { 4, 3, 2, 1, 0 }},
+                                            new double[] { 2, 2, 2, 2, 2 }};
+                yield return new object[] { new List<double[]>() {
+                                                new double[] { 0.0, 0.1, 0.2, 0.3, 0.4 },
+                                                new double[] { 0.4, 0.3, 0.2, 0.1, 0.0 }},
+                                            new double[] { 0.2, 0.2, 0.2, 0.2, 0.2 }};
             }
 
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

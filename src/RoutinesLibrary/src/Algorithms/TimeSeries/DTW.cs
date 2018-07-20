@@ -12,13 +12,13 @@ namespace RoutinesLibrary.Algorithms.TimeSeries
     /// <remarks>https://gist.github.com/socrateslee/1966342</remarks>
     public class DTW
     {
-        private int[] _x;
-        private int[] _y;
-        private int[,] _distance;
-        private int[,] _f;
-        private int _sum;
+        private double[] _x;
+        private double[] _y;
+        private double[,] _distance;
+        private double[,] _f;
+        private double _sum;
 
-        public DTW(int[] x, int[] y, int sakoeChibaBand = -1)
+        public DTW(double[] x, double[] y, int sakoeChibaBand = -1)
         {
             // Check arguments
             if (ReferenceEquals(x, null) || x.Length <= 0)
@@ -33,8 +33,8 @@ namespace RoutinesLibrary.Algorithms.TimeSeries
 
             _x = x;
             _y = y;
-            _distance = new int[x.Length, y.Length];
-            _f = new int[x.Length + 1, y.Length + 1];
+            _distance = new double[x.Length, y.Length];
+            _f = new double[x.Length + 1, y.Length + 1];
 
             for (int i = 0; i < x.Length; ++i)
             {
@@ -82,7 +82,7 @@ namespace RoutinesLibrary.Algorithms.TimeSeries
             _sum = ComputeFBackward(x.Length, y.Length);
         }
 
-        public int GetSum()
+        public double GetSum()
         {
             return _sum;
         }
@@ -95,7 +95,7 @@ namespace RoutinesLibrary.Algorithms.TimeSeries
             return tupleBackward.ToArray();
         }
 
-        private int ComputeFBackward(int i, int j)
+        private double ComputeFBackward(int i, int j)
         {
             if (!(_f[i, j] < 0))
             {

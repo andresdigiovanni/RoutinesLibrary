@@ -16,7 +16,7 @@ namespace RoutinesLibrary.Algorithms.TimeSeries
         /// <summary>
         /// Generate average of supplied series.
         /// </summary>
-        public static int[] Average(List<int[]> series, int maxIterations = 100)
+        public static double[] Average(List<double[]> series, int maxIterations = 100)
         {
             // Check arguments
             if (ReferenceEquals(series, null) || series.Count <= 0)
@@ -37,13 +37,12 @@ namespace RoutinesLibrary.Algorithms.TimeSeries
             length /= series.Count;
 
             //initialize to series closest to median min/max after detrending
-            List<int[]> tempSeries = series.Select(Detrend).ToList();
+            List<double[]> tempSeries = series.Select(Detrend).ToList();
             List<int> maxIndexes = tempSeries.Select(x => x.IndexOfMax()).ToList();
             List<int> minIndexes = tempSeries.Select(x => x.IndexOfMin()).ToList();
             int medianMaxIndex = maxIndexes.Median();
             int medianMinIndex = minIndexes.Median();
-            List<int> distances = maxIndexes.Select((x, i) => (int)Math.Pow(x - medianMaxIndex, 2) + (int)Math.Pow(minIndexes[i] - medianMinIndex, 2)).ToList();
-            int[] average = new int[length];
+            double[] average = new double[length];
             for (int i = 0; i < length; i++)
             {
                 average[i] = 0;
@@ -51,10 +50,10 @@ namespace RoutinesLibrary.Algorithms.TimeSeries
 
             //this list will hold the values of each aligned point, 
             //later used to construct the aligned average
-            List<int>[] points = new List<int>[length];
+            List<double>[] points = new List<double>[length];
             for (int i = 0; i < length; i++)
             {
-                points[i] = new List<int>();
+                points[i] = new List<double>();
             }
 
             double prevTotalDist = -1;
@@ -70,13 +69,13 @@ namespace RoutinesLibrary.Algorithms.TimeSeries
                 prevTotalDist = totalDist;
 
                 //clear the points from the last calculation
-                foreach (List<int> list in points)
+                foreach (List<double> list in points)
                 {
                     list.Clear();
                 }
 
                 //here we do the alignment for every series
-                foreach (int[] ts in series)
+                foreach (double[] ts in series)
                 {
                     DTW dtw = new DTW(ts, average, 3);
                     Tuple<int, int>[] path = dtw.GetPath();
@@ -90,12 +89,12 @@ namespace RoutinesLibrary.Algorithms.TimeSeries
                 {
                     if (points[i].Count > 0)
                     {
-                        average[i] = (int)points[i].Average();
+                        average[i] = points[i].Average();
                     }
                 }
 
                 //calculate Euclidean distance to stop the loop if no further improvement can be made
-                int[] average1 = average;
+                double[] average1 = average;
                 totalDist = 0;
                 for (int i = 0; i < series.Count; i++)
                 {
@@ -111,11 +110,11 @@ namespace RoutinesLibrary.Algorithms.TimeSeries
             return average;
         }
 
-        private static int[] Detrend(int[] input)
+        private static double[] Detrend(double[] input)
         {
             int len = input.Length;
-            int step = (input[len - 1] - input[0]) / len;
-            int[] output = new int[len];
+            double step = (input[len - 1] - input[0]) / len;
+            double[] output = new double[len];
 
             for (int i = 0; i < len; i++)
             {
