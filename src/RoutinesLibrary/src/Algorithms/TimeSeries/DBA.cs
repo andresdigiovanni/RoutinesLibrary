@@ -18,8 +18,16 @@ namespace RoutinesLibrary.Algorithms.TimeSeries
         /// </summary>
         public static int[] Average(List<int[]> series, int maxIterations = 100)
         {
-            if (series == null || series.Count == 0) throw new Exception("series null or empty");
-            if (series.Count == 1) return series[0];
+            // Check arguments
+            if (ReferenceEquals(series, null) || series.Count <= 0)
+            {
+                throw (new ArgumentNullException("series"));
+            }
+
+            if (series.Count == 1)
+            {
+                return series[0];
+            }
 
             int length = 0;
             for (int i = 0; i < series.Count; i++)
