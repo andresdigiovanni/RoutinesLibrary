@@ -17,49 +17,18 @@ namespace RoutinesLibrary.Data
         /// <returns>A reference to the changed array.</returns>
         public static T[] SetAllValues<T>(this T[] array, T value)
         {
+            // Check arguments
+            if (ReferenceEquals(array, null) || array.Length <= 0)
+            {
+                throw (new ArgumentNullException("array"));
+            }
+
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = value;
             }
 
             return array;
-        }
-
-        /// <summary>
-        /// Get the array slice between the two indexes.
-        /// Inclusive for start index, exclusive for end index.
-        /// </summary>
-        /// <typeparam name="T">The type of the elements of the array.</typeparam>
-        /// <param name="array">The one-dimensional, zero-based array that will be sliced from.</param>
-        /// <param name="index">The start index.</param>
-        /// <param name="end">The end index.  If end is negative, it is treated like length.</param>
-        /// <returns>The resulting array.</returns>
-        public static T[] Slice<T>(this T[] array, int index, int end)
-        {
-            // Handles negative ends
-            int len;
-            if (end == 0)
-            {
-                throw new ArgumentOutOfRangeException("end", end, "must be a positive index or a length (indicated by negative), not 0");
-            }
-            else if (end > 0)
-            {
-                len = end - index;
-            }
-            else
-            {
-                len = -end;
-                end = index + len;
-            }
-
-            // Return new array
-            T[] res = new T[len];
-            for (int i = 0; i < len; i++)
-            {
-                res[i] = array[i + index];
-            }
-
-            return res;
         }
 
         /// <summary>
