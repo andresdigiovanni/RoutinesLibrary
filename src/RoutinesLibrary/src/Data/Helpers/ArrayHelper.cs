@@ -76,10 +76,31 @@ namespace RoutinesLibrary.Data
         /// <param name="index">The index.</param>
         /// <param name="length">The length.</param>
         /// <returns>T[].</returns>
-        public static T[] SubArray<T>(this T[] data, int index, int length)
+        public static T[] SubArray<T>(this T[] array, int index, int length)
         {
+            // Check arguments
+            if (ReferenceEquals(array, null) || array.Length <= 0)
+            {
+                throw (new ArgumentNullException("array"));
+            }
+
+            if (index < 0 || index > array.Length)
+            {
+                throw (new ArgumentOutOfRangeException("index"));
+            }
+
+            if (length < 1)
+            {
+                throw (new ArgumentOutOfRangeException("length"));
+            }
+
+            if (index + length > array.Length)
+            {
+                throw (new ArgumentOutOfRangeException("length"));
+            }
+
             T[] result = new T[length];
-            Array.Copy(data, index, result, 0, length);
+            Array.Copy(array, index, result, 0, length);
             return result;
         }
 
