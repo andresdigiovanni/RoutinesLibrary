@@ -28,5 +28,15 @@ namespace RoutinesLibrary.Drawing
 
             return temp;
         }
+
+        public static Bitmap ResizeCanvas(Bitmap bitmap, int width, int height, PixelFormat pixelFormat = PixelFormat.Format32bppRgb)
+        {
+            Bitmap temp = new Bitmap(width, height, pixelFormat);
+            temp.SetResolution(bitmap.HorizontalResolution, bitmap.VerticalResolution);
+            Graphics g = Graphics.FromImage(temp);
+            g.DrawImageUnscaled(bitmap, 0, 0, width, height);
+
+            return temp;
+        }
     }
 }
