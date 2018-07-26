@@ -7,6 +7,12 @@ namespace RoutinesLibrary.Data
     {
         public static string BytesToHexa(byte[] bytes, string separator = "")
         {
+            // Check arguments
+            if (ReferenceEquals(bytes, null))
+            {
+                throw (new ArgumentNullException("bytes"));
+            }
+
             string sHexa = "";
 
             for (var i = 0; i < bytes.Length; i++)
@@ -21,30 +27,30 @@ namespace RoutinesLibrary.Data
             return sHexa;
         }
 
-        public static List<byte> HexaToBytes(string sHexa, string separator = "")
+        public static byte[] HexaToBytes(string value, string separator = "")
         {
             List<byte> bytes = new List<byte>();
             if (separator != "")
             {
-                sHexa = sHexa.Replace(separator, "");
+                value = value.Replace(separator, "");
             }
 
-            for (int i = 0; i < sHexa.Length; i += 2)
+            for (int i = 0; i < value.Length; i += 2)
             {
-                bytes.Add(Convert.ToByte(sHexa.Substring(i, 2), 16));
+                bytes.Add(Convert.ToByte(value.Substring(i, 2), 16));
             }
 
-            return bytes;
+            return bytes.ToArray();
         }
 
         public static string BytesToString(byte[] bytes)
         {
-            return System.Text.Encoding.ASCII.GetString(bytes);
+            return System.Text.Encoding.UTF8.GetString(bytes);
         }
 
-        public static byte[] StringToBytes(string sHexa)
+        public static byte[] StringToBytes(string value)
         {
-            return System.Text.Encoding.ASCII.GetBytes(sHexa);
+            return System.Text.Encoding.UTF8.GetBytes(value);
         }
     }
 }
