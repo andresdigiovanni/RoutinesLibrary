@@ -2,9 +2,9 @@ using System;
 
 namespace RoutinesLibrary.Data
 {
-    public class DateHelper
+    public class DateTimeHelper
     {
-        public static long DateToTimeStamp(DateTime date)
+        public static long DateTimeToUnixTimeStamp(DateTime date)
         {
             long unixTimestamp = date.Ticks - new DateTime(1970, 1, 1).Ticks;
             unixTimestamp /= TimeSpan.TicksPerSecond;
@@ -12,10 +12,10 @@ namespace RoutinesLibrary.Data
             return unixTimestamp;
         }
 
-        public static DateTime TimeStampToDate(long timestamp)
+        public static DateTime UnixTimeStampToDateTime(long unixTimestamp)
         {
             DateTime date = new DateTime(1970, 1, 1);
-            long unixTimeStampInTicks = timestamp * TimeSpan.TicksPerSecond;
+            long unixTimeStampInTicks = unixTimestamp * TimeSpan.TicksPerSecond;
 
             return new DateTime(date.Ticks + unixTimeStampInTicks);
         }

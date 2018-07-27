@@ -50,7 +50,7 @@
     <Compile Include="src\Data\DataStructures\BidirHashtable.cs" />
     <Compile Include="src\Data\DataStructures\ByteCollection.cs" />
     <Compile Include="src\Data\Helpers\ByteHelper.cs" />
-    <Compile Include="src\Data\Helpers\DateHelper.cs" />
+    <Compile Include="src\Data\Helpers\DateTimeHelper.cs" />
     <Compile Include="src\Data\Utils\FilterData.cs" />
     <Compile Include="src\Data\DataStructures\Heap.cs" />
     <Compile Include="src\Data\Helpers\IntegerHelper.cs" />

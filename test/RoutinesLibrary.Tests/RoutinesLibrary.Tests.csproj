@@ -63,6 +63,7 @@
     <Compile Include="test\Algorithms\TimeSeries\DTWTest.cs" />
     <Compile Include="test\Data\Helpers\ArrayHelperTest.cs" />
     <Compile Include="test\Data\Helpers\ByteHelperTest.cs" />
+    <Compile Include="test\Data\Helpers\DateTimeHelperTest.cs" />
     <Compile Include="test\Data\Helpers\IntegerHelperTest.cs" />
     <Compile Include="test\Data\Helpers\ListHelperTest.cs" />
     <Compile Include="test\Data\Utils\AverageTest.cs" />
