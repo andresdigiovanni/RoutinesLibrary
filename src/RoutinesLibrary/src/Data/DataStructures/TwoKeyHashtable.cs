@@ -3,15 +3,10 @@ using System.Collections;
 
 namespace RoutinesLibrary.Data
 {
-    public class MultiDimensionalHashtable
+    public class TwoKeyHashtable
     {
         private Hashtable _internalTable = new Hashtable();
 
-
-        public void Clear()
-        {
-            _internalTable.Clear();
-        }
 
         public void Add(object key, object key2, object val)
         {
@@ -28,6 +23,11 @@ namespace RoutinesLibrary.Data
             }
 
             htRow[key2] = val;
+        }
+
+        public void Clear()
+        {
+            _internalTable.Clear();
         }
 
         public void Remove(object key, object key2)
@@ -48,6 +48,21 @@ namespace RoutinesLibrary.Data
         public void RemoveRow(object key)
         {
             _internalTable.Remove(key);
+        }
+
+        public int Count(object key)
+        {
+            if (_internalTable.Contains(key))
+            {
+                return ((Hashtable)_internalTable[key]).Count;
+            }
+
+            return 0;
+        }
+
+        public int CountRow()
+        {
+            return _internalTable.Count;
         }
 
         public dynamic Item(object key, object key2)

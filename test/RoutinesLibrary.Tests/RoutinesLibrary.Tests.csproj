@@ -62,6 +62,7 @@
     <Compile Include="test\Algorithms\Graphs\DijkstraWithoutQueueTest.cs" />
     <Compile Include="test\Algorithms\TimeSeries\DBATest.cs" />
     <Compile Include="test\Algorithms\TimeSeries\DTWTest.cs" />
+    <Compile Include="test\Data\DataStructures\TwoKeyHashtableTest.cs" />
     <Compile Include="test\Data\Helpers\ArrayHelperTest.cs" />
     <Compile Include="test\Data\Helpers\ByteHelperTest.cs" />
     <Compile Include="test\Data\Helpers\DateTimeHelperTest.cs" />

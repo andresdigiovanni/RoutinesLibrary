@@ -56,7 +56,7 @@
     <Compile Include="src\Data\DataStructures\Heap.cs" />
     <Compile Include="src\Data\Helpers\IntegerHelper.cs" />
     <Compile Include="src\Data\Helpers\ListHelper.cs" />
-    <Compile Include="src\Data\DataStructures\MultiDimensionalHashtable.cs" />
+    <Compile Include="src\Data\DataStructures\TwoKeyHashtable.cs" />
     <Compile Include="src\Data\Utils\RangeHelper.cs" />
     <Compile Include="src\Data\Helpers\StringHelper.cs" />
     <Compile Include="src\Data\Helpers\XmlHelper.cs" />
