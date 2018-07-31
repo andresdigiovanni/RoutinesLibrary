@@ -2,7 +2,7 @@ language: csharp
 solution: RoutinesLibrary.sln
 install:
   - nuget restore RoutinesLibrary.sln
-  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
+  - nuget install xunit.runner.console -Version 2.1.0 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release RoutinesLibrary.sln
-  - mono ./packages/xunit.runners.*/tools/xunit.console.clr4.exe ./test/RoutinesLibrary.Tests/bin/Release/RoutinesLibrary.Tests.dll
+  - mono ./testrunner/xunit.runner.console*/tools/xunit.console.exe ./test/RoutinesLibrary.Tests/bin/Release/RoutinesLibrary.Tests.dll
