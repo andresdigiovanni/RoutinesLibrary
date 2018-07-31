@@ -14,7 +14,7 @@ namespace RoutinesLibrary.Data
             {
                 lock (_locker)
                 {
-                    return (byte) InnerList[index];
+                    return (byte)InnerList[index];
                 }
             }
             set
@@ -31,6 +31,14 @@ namespace RoutinesLibrary.Data
             lock (_locker)
             {
                 return InnerList.Add(value);
+            }
+        }
+
+        public void AddRange(byte[] value)
+        {
+            lock (_locker)
+            {
+                InnerList.AddRange(value);
             }
         }
 
