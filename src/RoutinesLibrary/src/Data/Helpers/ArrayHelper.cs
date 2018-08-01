@@ -89,7 +89,7 @@ namespace RoutinesLibrary.Data
                 throw (new ArgumentOutOfRangeException("index"));
             }
 
-            if (length < 1)
+            if (length < 0)
             {
                 throw (new ArgumentOutOfRangeException("length"));
             }

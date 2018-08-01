@@ -82,7 +82,7 @@ namespace RoutinesLibrary.Tests.Data.Helpers
         public void SubArray_Exception_Length_OutOfRange_Bottom()
         {
             double[] list = new double[] { 0, 1 };
-            Assert.Throws<ArgumentOutOfRangeException>(() => ArrayHelper.SubArray(list, 0, 0));
+            Assert.Throws<ArgumentOutOfRangeException>(() => ArrayHelper.SubArray(list, 0, -1));
         }
 
         [Fact]
