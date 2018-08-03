@@ -5,21 +5,19 @@ namespace RoutinesLibrary.IO
 {
     public class FileHelper
     {
-        public static bool IsFileOpen(string filePath)
+        public static bool IsFileOpen(string filePath, FileAccess fileAccess = FileAccess.ReadWrite)
         {
-            bool isOpen = false;
-
             try
             {
-                FileStream fs = File.OpenWrite(filePath);
+                FileStream fs = new FileStream(filePath, FileMode.Open, fileAccess);
                 fs.Close();
             }
             catch (IOException)
             {
-                isOpen = true;
+                return true;
             }
 
-            return isOpen;
+            return false;
         }
     }
 }
