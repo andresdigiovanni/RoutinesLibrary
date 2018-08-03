@@ -20,7 +20,6 @@ namespace RoutinesLibrary.Data
 
         private readonly HeapType _heapType;
         private T[] _heap;
-        private int _count;
 
         /// <summary>
         /// Create a new heap.
@@ -36,12 +35,12 @@ namespace RoutinesLibrary.Data
         /// <summary>
         /// Current size of the Heap.
         /// </summary>
-        public int Count { get { return _count; } }
+        public int Count { get; private set; }
 
         /// <summary>
         /// Test to see if the Heap is empty.
         /// </summary>
-        public bool IsEmpty { get { return _count == 0; } }
+        public bool IsEmpty { get { return Count == 0; } }
 
         /// <summary>
         /// Add a new value to the Heap.
@@ -49,13 +48,13 @@ namespace RoutinesLibrary.Data
         /// <param name="val"></param>
         public void Insert(T val)
         {
-            if (_count == _heap.Length)
+            if (Count == _heap.Length)
             {
                 DoubleHeap();
             }
-            _heap[_count] = val;
-            ShiftUp(_count);
-            _count++;
+            _heap[Count] = val;
+            ShiftUp(Count);
+            Count++;
         }
 
         /// <summary>
@@ -75,8 +74,8 @@ namespace RoutinesLibrary.Data
         public T Remove()
         {
             T output = Peek();
-            _count--;
-            _heap[0] = _heap[_count];
+            Count--;
+            _heap[0] = _heap[Count];
             ShiftDown(0);
             return output;
         }
@@ -102,10 +101,10 @@ namespace RoutinesLibrary.Data
         private void ShiftDown(int heapIndex)
         {
             int child1 = heapIndex * 2 + 1;
-            if (child1 >= _count) return;
+            if (child1 >= Count) return;
             int child2 = child1 + 1;
 
-            int preferredChildIndex = (child2 >= _count || DoCompare(child1, child2) <= 0) ? child1 : child2;
+            int preferredChildIndex = (child2 >= Count || DoCompare(child1, child2) <= 0) ? child1 : child2;
             if (DoCompare(preferredChildIndex, heapIndex) > 0) return;
             Swap(heapIndex, preferredChildIndex);
             ShiftDown(preferredChildIndex);
