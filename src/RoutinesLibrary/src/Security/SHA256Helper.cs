@@ -1,7 +1,7 @@
-using RoutinesLibrary.Data;
 using System;
 using System.IO;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace RoutinesLibrary.Security
 {
@@ -19,12 +19,12 @@ namespace RoutinesLibrary.Security
 					byte[] hashValue = null;
 					FileInfo fInfo = new FileInfo(sFilePath);
 					FileStream fileStream = fInfo.Open(FileMode.Open);
-						
+
 					fileStream.Position = 0;
 					hashValue = mySHA256.ComputeHash(fileStream);
 					fileStream.Close();
 						
-					bOK = checksum == ByteHelper.BytesToString(hashValue);
+					bOK = checksum == Encoding.UTF8.GetString(hashValue);
 				}
 				catch (Exception ex)
 				{
