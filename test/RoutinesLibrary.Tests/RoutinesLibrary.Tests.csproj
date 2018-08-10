@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test\Algorithms\Graphs\DijkstraWithoutQueueTest.cs" />
+    <Compile Include="test\Data\DataStructures\HeapTest.cs" />
     <Compile Include="test\Security\AesHelperTest.cs" />
     <Compile Include="test\Security\CRC16Test.cs" />
     <Compile Include="test\Security\CRC16_CCITTTest.cs" />
