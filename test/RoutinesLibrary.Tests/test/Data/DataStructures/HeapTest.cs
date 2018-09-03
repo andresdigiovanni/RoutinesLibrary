@@ -38,6 +38,42 @@ namespace RoutinesLibrary.Tests.Data
         [InlineData(0)]
         [InlineData(1)]
         [InlineData(10000)]
+        public void Peek_MinHeap(int values)
+        {
+            var result = true;
+            Heap<int> heap = new Heap<int>(1);
+
+            for (int i = values - 1; i > 0; i--)
+            {
+                heap.Insert(i);
+                result &= (i == heap.Peek());
+            }
+
+            Assert.True(result);
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(10000)]
+        public void Peek_MaxHeap(int values)
+        {
+            var result = true;
+            Heap<int> heap = new Heap<int>(1, true);
+
+            for (int i = 0; i < values; i++)
+            {
+                heap.Insert(i);
+                result &= (i == heap.Peek());
+            }
+
+            Assert.True(result);
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(10000)]
         public void Remove(int values)
         {
             Heap<int> heap = new Heap<int>(1);
