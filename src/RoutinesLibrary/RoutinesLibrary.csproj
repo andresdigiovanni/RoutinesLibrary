@@ -46,11 +46,7 @@
     <Compile Include="src\Data\DataStructures\ByteCollection.cs" />
     <Compile Include="src\Data\Helpers\StringHelper.cs" />
     <Compile Include="src\Data\Helpers\XmlHelper.cs" />
-    <Compile Include="src\Security\AesHelper.cs" />
-    <Compile Include="src\Security\CRC16.cs" />
-    <Compile Include="src\Security\CRC16_CCITT.cs" />
     <Compile Include="src\Security\SHA256Helper.cs" />
-    <Compile Include="src\Security\TEAHelper.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

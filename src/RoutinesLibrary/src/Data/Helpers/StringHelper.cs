@@ -5,23 +5,16 @@ namespace RoutinesLibrary.Data
 {
     public class StringHelper
     {
-        public static string Base64Encode(string data)
+        public static string Base64Encode(string plainText)
         {
-            byte[] encData = new byte[data.Length];
-            encData = System.Text.Encoding.UTF8.GetBytes(data);
-
-            return Convert.ToBase64String(encData);
+            var plainTextBytes = Encoding.UTF8.GetBytes(plainText);
+            return Convert.ToBase64String(plainTextBytes);
         }
 
-        public static string Base64Decode(string data)
+        public static string Base64Decode(string base64EncodedData)
         {
-            System.Text.Decoder utf8Decoder = new System.Text.UTF8Encoding().GetDecoder();
-
-            byte[] bytes = Convert.FromBase64String(data);
-            char[] decoded = new char[utf8Decoder.GetCharCount(bytes, 0, bytes.Length)];
-            utf8Decoder.GetChars(bytes, 0, bytes.Length, decoded, 0);
-
-            return new String(decoded);
+            var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
+            return Encoding.UTF8.GetString(base64EncodedBytes);
         }
 
         public static string StringToHex(string asciiString)
