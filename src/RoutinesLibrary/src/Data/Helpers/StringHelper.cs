@@ -27,19 +27,6 @@ namespace RoutinesLibrary.Data
             return StrValue;
         }
 
-        public static string Left(string str, int length)
-        {
-            return (str.Length <= length) ? str : str.Substring(0, length);
-        }
-
-        public static string Mid(string str, int startIndex, int length)
-        {
-            if (str.Length < startIndex) return "";
-
-            return (str.Length < startIndex + length) ? str.Substring(startIndex, str.Length - startIndex)
-                                                      : str.Substring(startIndex, length);
-        }
-
         public static string RemoveSpecialCharacters(string str)
         {
             StringBuilder sb = new StringBuilder();
