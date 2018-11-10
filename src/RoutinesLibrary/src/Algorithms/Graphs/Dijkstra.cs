@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RoutinesLibrary.Algorithms.Graphs
 {
-    public static class DijkstraWithoutQueue
+    public static class Dijkstra
     {
-        public static List<int> DijkstraAlgorithm(int[,] graph, int sourceNode, int destinationNode)
+        public static int[] Compute(int[,] graph, int sourceNode, int destinationNode)
         {
             var n = graph.GetLength(0);
 
@@ -63,7 +63,7 @@ namespace RoutinesLibrary.Algorithms.Graphs
 
             if (distance[destinationNode] == int.MaxValue)
             {
-                return null;
+                return new int[0];
             }
 
             var path = new LinkedList<int>();
@@ -74,7 +74,7 @@ namespace RoutinesLibrary.Algorithms.Graphs
                 currentNode = previous[currentNode.Value];
             }
 
-            return path.ToList();
+            return path.ToArray();
         }
     }
 }

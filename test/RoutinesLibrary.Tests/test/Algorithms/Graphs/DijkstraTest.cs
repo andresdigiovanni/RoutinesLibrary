@@ -9,13 +9,13 @@ using Xunit;
 
 namespace RoutinesLibrary.Tests.Algorithms.Graphs
 {
-    public class DijkstraWithoutQueueTest
+    public class DijkstraTest
     {
         [Theory]
-        [ClassData(typeof(DijkstraAlgorithmData))]
+        [ClassData(typeof(DijkstraData))]
         public void DijkstraAlgorithm(int[,] graph, int sourceNode, int destinationNode, int[] expected)
         {
-            var output = DijkstraWithoutQueue.DijkstraAlgorithm(graph, sourceNode, destinationNode);
+            var output = Dijkstra.Compute(graph, sourceNode, destinationNode);
             int[] result = null;
 
             if (!ReferenceEquals(output, null))
@@ -26,7 +26,7 @@ namespace RoutinesLibrary.Tests.Algorithms.Graphs
             Assert.Equal(expected, result);
         }
 
-        public class DijkstraAlgorithmData : IEnumerable<object[]>
+        public class DijkstraData : IEnumerable<object[]>
         {
             public IEnumerator<object[]> GetEnumerator()
             {
@@ -49,7 +49,7 @@ namespace RoutinesLibrary.Tests.Algorithms.Graphs
 
                 yield return new object[] { graph, 0, 9, new int[] { 0, 8, 5, 4, 11, 1, 9 } };
                 yield return new object[] { graph, 0, 2, new int[] { 0, 8, 2 } };
-                yield return new object[] { graph, 0, 10, null };
+                yield return new object[] { graph, 0, 10, new int[] { } };
                 yield return new object[] { graph, 0, 11, new int[] { 0, 8, 5, 4, 11 } };
                 yield return new object[] { graph, 0, 1, new int[] { 0, 8, 5, 4, 11, 1 } };
             }

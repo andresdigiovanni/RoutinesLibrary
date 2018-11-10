@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="test\Algorithms\Graphs\DijkstraWithoutQueueTest.cs" />
+    <Compile Include="test\Algorithms\Graphs\DijkstraTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
