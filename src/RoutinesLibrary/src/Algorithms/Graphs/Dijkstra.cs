@@ -8,26 +8,26 @@ namespace RoutinesLibrary.Algorithms.Graphs
 {
     public static class Dijkstra
     {
-        public static int[] Compute(int[,] graph, int sourceNode, int destinationNode)
+        public static int[] Compute(double[,] graph, int sourceNode, int destinationNode)
         {
-            var n = graph.GetLength(0);
+            var length = graph.GetLength(0);
 
-            var distance = new int[n];
-            for (int i = 0; i < n; i++)
+            var distance = new double[length];
+            for (int i = 0; i < length; i++)
             {
-                distance[i] = int.MaxValue;
+                distance[i] = double.MaxValue;
             }
 
             distance[sourceNode] = 0;
 
-            var used = new bool[n];
-            var previous = new int?[n];
+            var used = new bool[length];
+            var previous = new int?[length];
 
             while (true)
             {
-                var minDistance = int.MaxValue;
+                var minDistance = double.MaxValue;
                 var minNode = 0;
-                for (int i = 0; i < n; i++)
+                for (int i = 0; i < length; i++)
                 {
                     if (!used[i] && minDistance > distance[i])
                     {
@@ -36,14 +36,14 @@ namespace RoutinesLibrary.Algorithms.Graphs
                     }
                 }
 
-                if (minDistance == int.MaxValue)
+                if (minDistance == double.MaxValue)
                 {
                     break;
                 }
 
                 used[minNode] = true;
 
-                for (int i = 0; i < n; i++)
+                for (int i = 0; i < length; i++)
                 {
                     if (graph[minNode, i] > 0)
                     {
@@ -61,7 +61,7 @@ namespace RoutinesLibrary.Algorithms.Graphs
                 }
             }
 
-            if (distance[destinationNode] == int.MaxValue)
+            if (distance[destinationNode] == double.MaxValue)
             {
                 return new int[0];
             }

@@ -13,7 +13,7 @@ namespace RoutinesLibrary.Tests.Algorithms.Graphs
     {
         [Theory]
         [ClassData(typeof(DijkstraData))]
-        public void DijkstraAlgorithm(int[,] graph, int sourceNode, int destinationNode, int[] expected)
+        public void DijkstraAlgorithm(double[,] graph, int sourceNode, int destinationNode, int[] expected)
         {
             var output = Dijkstra.Compute(graph, sourceNode, destinationNode);
             int[] result = null;
@@ -30,7 +30,7 @@ namespace RoutinesLibrary.Tests.Algorithms.Graphs
         {
             public IEnumerator<object[]> GetEnumerator()
             {
-                var graph = new[,]
+                var graph = new double[,]
                 {
                     // 0   1   2   3   4   5   6   7   8   9  10  11
                     { 0,  0,  0,  0,  0,  0, 10,  0, 12,  0,  0,  0 }, // 0
