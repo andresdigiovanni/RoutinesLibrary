@@ -1,4 +1,4 @@
-﻿using RoutinesLibrary.Data;
+﻿using RoutinesLibrary.Threading;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +7,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace RoutinesLibrary.Tests.ActionTimeout
+namespace RoutinesLibrary.Tests.Threading
 {
-    public class ActionTimeoutTest
+    public class TaskTimeoutTest
     {
         private const int DELAY_MILLISECONDS = 100;
         private const int EXCESS_DELAY_MILLISECONDS = 400;
@@ -32,7 +32,7 @@ namespace RoutinesLibrary.Tests.ActionTimeout
 
         private void DelayFunction(int timeout, int delay)
         {
-            RoutinesLibrary.Data.ActionTimeout.CompletesIn(timeout, () =>
+            TaskTimeout.CompletesIn(timeout, () =>
             {
                 Thread.Sleep(delay);
             });

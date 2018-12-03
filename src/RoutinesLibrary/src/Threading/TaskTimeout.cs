@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoutinesLibrary.Data
+namespace RoutinesLibrary.Threading
 {
     //https://stackoverflow.com/questions/20282111/xunit-net-how-can-i-specify-a-timeout-how-long-a-test-should-maximum-need
-    public static class ActionTimeout
+    public static class TaskTimeout
     {
         public static void CompletesIn(int timeout, Action action)
         {
