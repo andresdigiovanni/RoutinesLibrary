@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace RoutinesLibrary.Data
+namespace RoutinesLibrary.Threading
 {
     public static class Lock
     {
-        public static void LockTimeout(object oLock, int timeout, Action action)
+        public static void CompletesIn(object oLock, int timeout, Action action)
         {
             Exception exception = null;
             bool lockWasTaken = false;
