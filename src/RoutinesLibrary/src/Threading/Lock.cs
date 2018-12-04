@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace RoutinesLibrary.Threading
 {
+    //https://stackoverflow.com/questions/6049346/how-long-will-a-c-sharp-lock-wait-and-what-if-the-code-crashes-during-the-lock
     public static class Lock
     {
         public static void CompletesIn(object oLock, int timeout, Action action)
@@ -27,18 +28,15 @@ namespace RoutinesLibrary.Threading
             }
             catch (Exception ex)
             {
-                // conserver l'exception
                 exception = ex;
             }
             finally
             {
-                // release le lock
                 if (lockWasTaken)
                 {
                     Monitor.Exit(oLock);
                 }
 
-                // relancer l'exception
                 if (exception != null)
                 {
                     throw new Exception("An exception occured during the lock proces.", exception);
