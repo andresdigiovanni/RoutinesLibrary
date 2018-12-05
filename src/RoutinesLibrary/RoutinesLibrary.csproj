@@ -45,7 +45,6 @@
     <Compile Include="src\Data\DataStructures\ByteCollection.cs" />
     <Compile Include="src\Data\Helpers\StringHelper.cs" />
     <Compile Include="src\Data\Helpers\XmlHelper.cs" />
-    <Compile Include="src\Threading\Lock.cs" />
     <Compile Include="src\Security\SHA256Helper.cs" />
   </ItemGroup>
   <ItemGroup />
