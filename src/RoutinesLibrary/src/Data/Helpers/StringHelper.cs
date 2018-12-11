@@ -5,13 +5,12 @@ namespace RoutinesLibrary.Data
 {
     public class StringHelper
     {
-        public static string StringToHex(string asciiString)
+        public static string ToHex(string asciiString)
         {
             string hex = "";
-            foreach (char c in asciiString)
+            foreach (char eachChar in asciiString)
             {
-                int tmp = c;
-                hex += String.Format("{0:x2}", Convert.ToUInt32(tmp.ToString()));
+                hex += string.Format("{0:x2}", Convert.ToInt32(eachChar));
             }
             return hex;
         }
